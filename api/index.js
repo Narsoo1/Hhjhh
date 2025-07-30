@@ -1,5 +1,6 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+
 const app = express();
 
 app.use(cors());
@@ -11,7 +12,6 @@ app.post('/checkUsername', (req, res) => {
   if (!username) {
     return res.status(400).json({ error: 'Username tidak ditemukan' });
   }
-  // Simulasi: jika username == 'admin', maka tidak tersedia
   const isAvailable = username.toLowerCase() !== 'admin';
   res.json({ available: isAvailable });
 });
